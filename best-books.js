@@ -8,6 +8,7 @@ const formEl = document.getElementById('best-books-form');
 const yearEl = document.getElementById('year');
 const monthEl = document.getElementById('month');
 const dateEl = document.getElementById('date');
+const bookEl = document.getElementById('books-container');
 
 formEl.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -39,6 +40,11 @@ formEl.addEventListener('submit', function (e) {
       //  const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
        // document.getElementById('article-img').src = imgUrl;
      // }
+     return book;
+    })
+    .then(function(book) {
+      console.log('did we get here', book);
+      bookEl.innerHTML = `<h1> ${book} </h1>`
     });
 });
 
