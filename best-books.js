@@ -31,6 +31,8 @@ formEl.addEventListener('submit', function (e) {
       console.log(responseJson);
 
       let book = responseJson.results.books[0].title;
+      let books = responseJson.results.books;
+      console.log(books);
       console.log(book);
 
       //const mainHeadline = article.headline.main;
@@ -40,11 +42,16 @@ formEl.addEventListener('submit', function (e) {
       //  const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
        // document.getElementById('article-img').src = imgUrl;
      // }
-     return book;
+     return books;
     })
-    .then(function(book) {
-      console.log('did we get here', book);
-      bookEl.innerHTML = `<h1> ${book} </h1>`
+    .then(function(books) {
+      //console.log('did we get here', book);
+      bookEl.innerHTML 
+        = `<div><h3> ${books[0].title} </h3>  <h5> ${books[0].author} </h5> <p> ${books[0].description} </p> </div>
+        <div><h3> ${books[1].title} </h3> <h5> ${books[1].author} </h5> <p> ${books[1].description} </p> </div>
+        <div><h3> ${books[2].title} </h3><h5> ${books[2].author} </h5> <p> ${books[2].description} </p></div>
+        <div><h3> ${books[3].title} </h3>  <h5> ${books[3].author} </h5> <p> ${books[3].description} </p></div>
+        <div><h3> ${books[4].title} </h3> <h5> ${books[4].author} </h5> <p> ${books[4].description} </p></div>`
     });
 });
 
